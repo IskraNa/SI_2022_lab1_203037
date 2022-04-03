@@ -1,0 +1,90 @@
+ 1. На почеток правам $ git clone https://github.com/IskraNa/SI_2022_lab1_203037.git, па $ cd SI_2022_lab1_203037 со што го клонирав репозиториумот во мој локален репозиториум. Започнав со правење на барањата.
+
+ 5. Во ова барање креирав текстуална датотека со името shopping_list, потоа употребив команда git add. , бидејќи оваа датотека беше во состојба untracked, потоа ја едитирав и употребив команда $ git commit -a -m "Add 5 items to the shopping list" бидејќи оваа датотека стана modified и не беше во staged, додека самата датотека не беше сеуште комитната.
+ 6. Во ова барање ја едитирав повторно датотеката односно додадов во секоја линија текст(количина за производите), со што таа стана modified, па направив commit со командата $ git commit -a -m "Add quantities to the items.".
+ 7. Креирав две нови гранки со командите $ git branch branch1 ; $ git branch branch2
+ 8. $ git log
+commit eb98f81c08cc0b6799394e02bd2c4f9dcfacf498 (HEAD -> master, branch2, branch1)
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 21:34:19 2022 +0200
+
+    Add quantities to the items.
+
+commit d94065cc9293722c540762b00a290bcc097c77e1
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 21:33:39 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit 0b8054ce9ee1e7acedfb2338a5b6ee3bf22e047b (origin/master, origin/HEAD)
+Author: Iskra Nasteska <86882636+IskraNa@users.noreply.github.com>
+Date:   Sun Apr 3 21:28:04 2022 +0200
+
+    Initial commit
+
+ 9. $ git push -all - со оваа команда ги синхронизирав досегашните промени и новите гранки со remote repo.
+10. $ git checkout branch1 - се префрливме на гранката branch1
+11. Во ова барање ја сменив количината на 5тата ставка од датотеката shopping_list па направив commit со командата $ git commit -a -m "Change quantity of item #5"
+12. $ git checkout master - се префрливме на гранката master
+13. Во ова барање ја сменив количината на 2рата ставка од датотеката shopping_list па направив commit со командата $ git commit -a -m "Change quantity of item #2"
+14. $ git push --all - со оваа команда ги синхронизирав досегашните промени и новите гранки со remote repo.
+15. $ git checkout branch2 - се префрливме на гранката branch2
+16. Во ова барање го сменив името на производот на 4тата ставка од датотеката shopping_list па направив commit со командата $ git commit -a -m "Modify item #4"
+17. $ git log
+commit 3ce5dead2b02a9663fbf880490bb9ddf8a790638 (HEAD -> branch2)
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 21:38:39 2022 +0200
+
+    Modify item #4
+
+commit eb98f81c08cc0b6799394e02bd2c4f9dcfacf498 (origin/branch2)
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 21:34:19 2022 +0200
+
+    Add quantities to the items.
+
+commit d94065cc9293722c540762b00a290bcc097c77e1
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 21:33:39 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit 0b8054ce9ee1e7acedfb2338a5b6ee3bf22e047b
+Author: Iskra Nasteska <86882636+IskraNa@users.noreply.github.com>
+Date:   Sun Apr 3 21:28:04 2022 +0200
+
+    Initial commit
+
+18. Во ова барање додадов 6та ставка во датотеката shopping_list и направив commit со командата $ git commit -a -m "add item #6"
+Потоа влегов во интерактивен мод со rebase со командата $ git rebase -i --root
+Направив squash на последниот commit со што ги споив последните 2 commit-и
+19.$ git log
+commit 9d9a9f73ae711c93819e72303572cca8100d90c3 (HEAD -> branch2)
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 20:18:44 2022 +0200
+
+    Modify item #4 and add item #6
+
+commit 0436f2c6defe332c3990cb1fbe7064b9b1590df6 (origin/branch2)
+Author: IskraNa <iskranasteska13@gmail.com>
+Date:   Sun Apr 3 20:14:11 2022 +0200
+
+    Add quantities to the items.
+
+commit 078b4dbb820a79b317ef5be4af4b2863b370f02b
+Author: Iskra Nasteska <86882636+IskraNa@users.noreply.github.com>
+Date:   Sun Apr 3 20:09:40 2022 +0200
+
+    Initial commit
+
+commit a943af8604da0b1fd2fcfb3cf18eae5d59ec4691
+Author: Iskra Nasteska <86882636+IskraNa@users.noreply.github.com>
+Date:   Sun Apr 3 20:09:19 2022 +0200
+
+    Initial commit
+20. $ git checkout master - се префрливме на гранката master
+    $ git merge branch1 - ја спојуваме гранката branch1 кон master
+21. $ git merge --no-ff branch2 - Бидејќи имаме контрадикторни промени, ќе се јави конфликт кој ќе го решиме со бирање на промените кои се кај master и промените кои се кај branch2, откако ќе изберем, правам commit со командата $ git commit -a -m "Merge branch 'branch2'"
+22. Во ова барање ја додадов датотеката за документација и направив commit со командата $ git commit -a -m "Add docs"
+23. $ git push --all - со оваа команда ги синхронизирав досегашните промени со remote repo.
+
