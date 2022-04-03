@@ -2,4 +2,4 @@ banana x 5
 apple x 6
 strawberry x 10
 cherry x 11
-kiwi x 7
+kiwi x 8
